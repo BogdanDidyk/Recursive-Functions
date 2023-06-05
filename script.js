@@ -10,6 +10,11 @@ function getDoubleFactorial(n) {
     return (n == 0 || n == 1) ? 1 : n * getDoubleFactorial(n - 2);
 }
 
+function getSumOfDigitsInIntegerNumber(n) {
+    return (n < 10) ? n : n % 10 + getSumOfDigitsInIntegerNumber(Math.floor(n / 10));
+}
+
 console.log(getFactorial(6));
 console.log(getFibonacci(6));
 console.log(getDoubleFactorial(6));
+console.log(getSumOfDigitsInIntegerNumber(5746));
