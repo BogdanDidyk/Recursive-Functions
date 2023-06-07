@@ -22,9 +22,14 @@ function getReversedIntegerNumber(n, result = 0) {
     return (n != 0) ? getReversedIntegerNumber(Math.trunc(n / 10), result * 10 + n % 10) : result;
 }
 
+function getArraySum(arr, startIndex = 0) {
+    return (startIndex == arr.length) ? 0 : arr[startIndex] + getArraySum(arr, startIndex + 1);
+}
+
 console.log(getFactorial(6));
 console.log(getFibonacci(6));
 console.log(getDoubleFactorial(6));
 console.log(getSumOfDigitsInIntegerNumber(5746));
 console.log(getReversedString("h3110 w0r1d"));
 console.log(getReversedIntegerNumber(-378));
+console.log(getArraySum([10, 10, 25.78, 5]));
