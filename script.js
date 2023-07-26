@@ -30,6 +30,18 @@ function getArrayMax(arr, startIndex = 0) {
     return (startIndex == arr.length) ? 0 : Math.max(arr[startIndex], getArrayMax(arr, startIndex + 1));
 }
 
+function flatArray(arr) {
+    const copy = [...arr];
+
+    return (function flat(arr) {
+        if (arr.length == 0) return [];
+    
+        const lastItem = arr.pop();
+        const a = flat(arr);
+        return Array.isArray(lastItem) ? a.concat(...flat(lastItem)) : a.concat(lastItem);
+    })(copy);
+}
+
 console.log(getFactorial(6));
 console.log(getFibonacci(6));
 console.log(getDoubleFactorial(6));
@@ -38,3 +50,4 @@ console.log(getReversedString("h3110 w0r1d"));
 console.log(getReversedIntegerNumber(-378));
 console.log(getArraySum([10, 10, 25.78, 5]));
 console.log(getArrayMax([10, 10, 25.78, 5]));
+console.log(flatArray([1, [2, [3]], 4, [[[[5], 6]]]]));
